@@ -1,0 +1,36 @@
+{
+  "name": "@ycpiglet/editorial-publishing-kit",
+  "version": "0.1.0-alpha.0",
+  "description": "Composable contracts, profiles, templates, and tooling for consistent editorial publishing projects.",
+  "license": "Apache-2.0",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "bin": {
+    "epk": "dist/src/cli.js"
+  },
+  "exports": {
+    ".": "./dist/src/index.js",
+    "./automation": "./dist/src/automation.js",
+    "./contracts": "./dist/src/contracts.js",
+    "./profiles": "./dist/src/profiles.js"
+  },
+  "files": [
+    "dist/src/",
+    "schemas/",
+    "skills/",
+    "templates/"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "check": "tsc -p tsconfig.json --noEmit && node scripts/check-repository.mjs",
+    "epk": "npm run build --silent && node dist/src/cli.js",
+    "test": "npm run build --silent && node --test dist/test/*.test.js",
+    "verify": "npm run check && npm test"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "typescript": "^5.9.0"
+  }
+}

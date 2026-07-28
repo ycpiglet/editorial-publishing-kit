@@ -1,0 +1,14 @@
+# {{PROJECT_NAME}} agent guide
+
+Read `publishing.project.json` before changing content, accounts, assets, resources, or publication behavior.
+
+- Keep `{{PROFILE}}` as the starting profile and document every intentional overlay.
+- Preserve the project's canonical content representation; use adapters at system boundaries.
+- Pin the current revision before edits. Never overwrite a conflicting revision silently.
+- Choose `direct` edits only when both policy and user intent allow them; otherwise create a proposal.
+- Validate content, links, assets, resources, and permissions before publication.
+- Show a preview or diff before publish, rollback, quarantine, or role changes.
+- Record why generated files or profile defaults were changed locally.
+- Convert recurring local changes into an upstream Issue or PR when they are broadly reusable.
+
+Run `epk doctor .` after changing the project manifest or managed template files.

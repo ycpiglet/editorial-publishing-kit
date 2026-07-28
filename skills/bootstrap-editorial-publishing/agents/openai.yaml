@@ -1,0 +1,4 @@
+interface:
+  display_name: "Bootstrap Editorial Publishing"
+  short_description: "Start consistent, profile-based publishing projects"
+  default_prompt: "Use $bootstrap-editorial-publishing to choose a publishing profile and scaffold this project safely."

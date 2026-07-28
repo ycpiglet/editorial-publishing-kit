@@ -1,0 +1,46 @@
+name: Feature or improvement
+description: Propose a reusable improvement grounded in recurring friction.
+title: "[Feature]: "
+labels:
+  - "type: feature"
+  - "status: needs-triage"
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: Describe the recurring user or maintainer friction before suggesting a solution.
+    validations:
+      required: true
+  - type: textarea
+    id: outcome
+    attributes:
+      label: Desired outcome
+    validations:
+      required: true
+  - type: textarea
+    id: local_change
+    attributes:
+      label: Existing local customization
+      description: If you already changed a project, show what changed and why.
+  - type: dropdown
+    id: scope
+    attributes:
+      label: Likely owning layer
+      options:
+        - Project overlay
+        - Profile
+        - Adapter
+        - Shared contract
+        - Automation or Agent Runtime
+        - Unsure
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Representative projects or evidence
+  - type: textarea
+    id: compatibility
+    attributes:
+      label: Compatibility, migration, or rollback concerns

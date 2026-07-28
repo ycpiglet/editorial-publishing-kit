@@ -1,0 +1,193 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/ycpiglet/editorial-publishing-kit/main/schemas/publishing-project.schema.json",
+  "title": "Editorial Publishing Kit project manifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "apiVersion",
+    "kind",
+    "metadata",
+    "spec"
+  ],
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "apiVersion": {
+      "const": "publishing.ycpiglet.dev/v1alpha1"
+    },
+    "kind": {
+      "const": "PublishingProject"
+    },
+    "metadata": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "name"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9][a-z0-9-]*$"
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "spec": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "profile",
+        "kitVersion",
+        "content",
+        "capabilities",
+        "adapters",
+        "governance",
+        "automation"
+      ],
+      "properties": {
+        "profile": {
+          "enum": [
+            "wiki-web",
+            "manual-portal",
+            "technical-atlas",
+            "local-tutorial",
+            "hybrid-docs"
+          ]
+        },
+        "kitVersion": {
+          "type": "string",
+          "minLength": 1
+        },
+        "content": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "canonicalStore",
+            "representation"
+          ],
+          "properties": {
+            "canonicalStore": {
+              "enum": [
+                "git",
+                "postgres",
+                "filesystem",
+                "hybrid"
+              ]
+            },
+            "representation": {
+              "enum": [
+                "prosemirror-json@1",
+                "html@1",
+                "markdown@1",
+                "quarto@1",
+                "mixed@1"
+              ]
+            }
+          }
+        },
+        "capabilities": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "adapters": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "id",
+              "slot",
+              "implementation",
+              "required"
+            ],
+            "properties": {
+              "id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "slot": {
+                "enum": [
+                  "content",
+                  "identity",
+                  "assets",
+                  "resources",
+                  "renderer",
+                  "publisher",
+                  "automation"
+                ]
+              },
+              "implementation": {
+                "type": "string",
+                "minLength": 1
+              },
+              "required": {
+                "type": "boolean"
+              }
+            }
+          }
+        },
+        "governance": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "feedback",
+            "requireChangeRationale",
+            "compatibilityPolicy"
+          ],
+          "properties": {
+            "feedback": {
+              "const": "github-issues-and-pull-requests"
+            },
+            "requireChangeRationale": {
+              "const": true
+            },
+            "compatibilityPolicy": {
+              "const": "semver-and-migrations"
+            }
+          }
+        },
+        "automation": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "provider",
+            "mode",
+            "activationCriteria"
+          ],
+          "properties": {
+            "provider": {
+              "enum": [
+                "none",
+                "agent-runtime",
+                "custom"
+              ]
+            },
+            "mode": {
+              "enum": [
+                "deferred",
+                "enabled"
+              ]
+            },
+            "activationCriteria": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

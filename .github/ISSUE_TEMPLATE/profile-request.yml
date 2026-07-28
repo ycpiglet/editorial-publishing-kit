@@ -1,0 +1,37 @@
+name: Profile or adapter request
+description: Request a repeatable project shape or external-system integration.
+title: "[Profile]: "
+labels:
+  - "type: profile"
+  - "status: needs-triage"
+body:
+  - type: textarea
+    id: projects
+    attributes:
+      label: Representative projects
+      description: Name at least one real project, its canonical source, and publication target.
+    validations:
+      required: true
+  - type: textarea
+    id: capabilities
+    attributes:
+      label: Required capabilities
+      description: Cover editing, review, accounts, uploads/downloads, resources, and publication.
+    validations:
+      required: true
+  - type: textarea
+    id: differences
+    attributes:
+      label: Why existing profiles or adapters are insufficient
+    validations:
+      required: true
+  - type: textarea
+    id: invariants
+    attributes:
+      label: What must remain common?
+      description: State the revision, permission, asset, or publication semantics this integration preserves.
+  - type: textarea
+    id: verification
+    attributes:
+      label: Proposed conformance evidence
+      description: Describe fixtures or checks that would prove the profile or adapter works.

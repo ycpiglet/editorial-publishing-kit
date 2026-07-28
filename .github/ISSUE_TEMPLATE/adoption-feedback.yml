@@ -1,0 +1,48 @@
+name: Adoption feedback
+description: Explain where the shared baseline helped or got in the way in a real project.
+title: "[Feedback]: "
+labels:
+  - "type: feedback"
+  - "status: needs-triage"
+body:
+  - type: input
+    id: project
+    attributes:
+      label: Project, profile, and kit version
+      placeholder: public link if available / wiki-web / 0.1.0-alpha.0
+    validations:
+      required: true
+  - type: textarea
+    id: job
+    attributes:
+      label: What were you trying to accomplish?
+    validations:
+      required: true
+  - type: textarea
+    id: useful
+    attributes:
+      label: What worked well?
+  - type: textarea
+    id: friction
+    attributes:
+      label: Where did the shared path become inconvenient?
+    validations:
+      required: true
+  - type: textarea
+    id: change
+    attributes:
+      label: What did you change locally, and why?
+      description: A diff, commit, or concise explanation is especially useful.
+    validations:
+      required: true
+  - type: textarea
+    id: upstream
+    attributes:
+      label: What should become reusable upstream?
+  - type: checkboxes
+    id: consent
+    attributes:
+      label: Data handling
+      options:
+        - label: I removed secrets, private content, learner data, and personal information.
+          required: true

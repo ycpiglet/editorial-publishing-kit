@@ -1,0 +1,53 @@
+name: Bug report
+description: Report a reproducible defect in {{PROJECT_NAME}}.
+title: "[Bug]: "
+labels:
+  - "type: bug"
+  - "status: needs-triage"
+body:
+  - type: dropdown
+    id: area
+    attributes:
+      label: Affected area
+      options:
+        - Editor or document
+        - Suggestion or review
+        - Upload, download, or asset
+        - Account or permission
+        - Resource management
+        - Publication or adapter
+        - Template or tooling
+    validations:
+      required: true
+  - type: input
+    id: profile
+    attributes:
+      label: Project profile
+      value: "{{PROFILE}}"
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Reproduction
+      description: Include the smallest repeatable sequence and relevant revision.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected and actual behavior
+    validations:
+      required: true
+  - type: textarea
+    id: impact
+    attributes:
+      label: User impact
+      description: Explain who is blocked or inconvenienced and how often it occurs.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence
+      description: Logs, screenshots, fixture, failing check, or public reproduction.

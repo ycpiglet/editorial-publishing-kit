@@ -1,0 +1,19 @@
+# {{PROJECT_NAME}} editorial operations
+
+## Change flow
+
+1. Fix the current document or resource revision.
+2. Decide between a direct edit and a proposal.
+3. Make the smallest reusable change.
+4. Validate schema, links, assets, permissions, and output adapters.
+5. Review the preview and diff.
+6. Publish an immutable artifact and verify its live revision.
+7. Record unexpected friction, local customization, or regression upstream.
+
+## Safety boundaries
+
+- Upload to private staging, verify type and size, scan when applicable, then attach.
+- Quarantine and restore assets instead of hard-deleting referenced files.
+- Keep account identity, project membership, and external publishing credentials separate.
+- Treat save and publish as separate lifecycle actions.
+- Do not enable remote automation or data transfer merely because an adapter exists.

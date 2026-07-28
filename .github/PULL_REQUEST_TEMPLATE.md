@@ -1,0 +1,32 @@
+## Problem and rationale
+
+Describe the user or maintainer problem. If this began as a local customization, explain why the profile default was insufficient.
+
+## Change
+
+Describe the authoritative contract, profile, adapter, template, or code changed.
+
+## Scope and compatibility
+
+- Affected profiles:
+- Affected capabilities or adapters:
+- Version class: documentation / compatible / additive / breaking
+- Migration or rollback:
+- Linked Issue:
+
+## Evidence
+
+- Commands run:
+- Fixtures or reproduction:
+- Preview, diff, or screenshots:
+- Accessibility, security, privacy, and cross-format impact:
+
+## Checklist
+
+- [ ] The change has a concrete rationale, not only a style preference.
+- [ ] Existing project-specific behavior and unrelated user changes are preserved.
+- [ ] New behavior has a focused test or conformance fixture.
+- [ ] Generated outputs were not edited as an undocumented source of truth.
+- [ ] Breaking changes include a migration and deprecation path.
+- [ ] No secrets, private content, learner data, or personal information are included.
+- [ ] `npm run verify` passes.

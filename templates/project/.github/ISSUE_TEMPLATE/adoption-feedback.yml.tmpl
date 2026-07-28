@@ -1,0 +1,44 @@
+name: Adoption feedback
+description: Explain where the generated baseline helped or got in the way.
+title: "[Feedback]: "
+labels:
+  - "type: feedback"
+  - "status: needs-triage"
+body:
+  - type: input
+    id: profile
+    attributes:
+      label: Profile and kit version
+      value: "{{PROFILE}} / see publishing.project.json"
+    validations:
+      required: true
+  - type: textarea
+    id: job
+    attributes:
+      label: What were you trying to accomplish?
+    validations:
+      required: true
+  - type: textarea
+    id: friction
+    attributes:
+      label: Where did the shared path become inconvenient?
+    validations:
+      required: true
+  - type: textarea
+    id: change
+    attributes:
+      label: What did you change locally, and why?
+      description: A diff, commit, or concise explanation is especially useful.
+    validations:
+      required: true
+  - type: textarea
+    id: upstream
+    attributes:
+      label: What should become reusable upstream?
+  - type: checkboxes
+    id: consent
+    attributes:
+      label: Data handling
+      options:
+        - label: I removed secrets, private content, and personal data from the evidence.
+          required: true
