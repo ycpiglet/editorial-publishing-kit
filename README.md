@@ -31,6 +31,15 @@ npm run epk -- doctor ../new-manual
 
 패키지 설치 후에는 `epk studio`로 같은 UI를 실행합니다. 인터뷰 답변과 채택 상태는 해당 브라우저의 versioned local storage에만 남고 원격으로 전송되지 않습니다. 자세한 흐름은 [Profile Studio 사용법](docs/PROFILE_STUDIO.md)을 참고하세요.
 
+Studio의 각 profile에는 언제·왜·누가 사용하는지, 기본 사용법, 장점·단점과
+추천 신호가 함께 표시됩니다. 사용자는 짧은 글을 직접 작성하고 revision 저장,
+위치 제안, WYSIWYG block, source rebuild, local artifact, output adapter 흐름을
+체험한 뒤 실제 Bean Wiki, TAG Manual, Robotics Math Atlas 배포와 MCLab 로컬
+구현을 열어 비교할 수 있습니다.
+
+Studio build와 test는 Ubuntu, Windows, macOS CI에서 같은 명령으로 검증합니다.
+실행에는 Node.js 20 이상과 최신 데스크톱 브라우저가 필요합니다.
+
 ## 프로필
 
 | 프로필 | 기준 프로젝트 | 적합한 용도 |
