@@ -12,8 +12,9 @@ Build from a versioned project profile and explicit adapters. Preserve each proj
 1. Read repository instructions and look for `publishing.project.json`.
 2. If the manifest exists, run `epk doctor .` before editing managed files.
 3. If no manifest exists, summarize the project's purpose, canonical content, author types, required outputs, account model, assets, and privacy constraints.
-4. Run `epk recommend "<purpose>"`. Read [profile-selection.md](references/profile-selection.md) if the result is ambiguous.
-5. Explain the chosen profile and important constraints. Run:
+4. Prefer `epk studio` for a first-time adopter. Guide the user through the local interview, ranked recommendation, profile UI examples, and adoption desk. The Studio stores answers only in that browser.
+5. When a browser UI is unavailable, run `epk recommend "<purpose>"` as the text fallback. Read [profile-selection.md](references/profile-selection.md) if the result is ambiguous.
+6. Explain the chosen profile, recommendation reasons, trade-offs, and important constraints. Run the command produced by the Studio, or:
 
    ```bash
    epk init <directory> --name "<name>" --profile <profile>
@@ -21,8 +22,8 @@ Build from a versioned project profile and explicit adapters. Preserve each proj
 
    In the kit source repository, use `npm run epk --` before the arguments.
 
-6. Never overwrite colliding files. Merge deliberately and record the rationale in `docs/editorial/DECISIONS.md`.
-7. Run `epk doctor .` again and report managed-file drift separately from invalid contracts.
+7. Never overwrite colliding files. Merge deliberately and record the rationale in `docs/editorial/DECISIONS.md`.
+8. Run `epk doctor .` again and report managed-file drift separately from invalid contracts.
 
 ## Apply editorial changes
 

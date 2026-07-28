@@ -6,6 +6,9 @@
 
 ### Added
 
+- 여덟 축의 guided interview와 근거·trade-off가 보이는 profile 추천
+- 다섯 profile의 interactive example UI와 local adoption Studio
+- manifest 다운로드, scaffold 명령 복사, `epk studio` local server
 - 다섯 project profile과 목적 기반 추천
 - versioned publishing project manifest와 JSON Schema
 - domain contract와 optional automation port

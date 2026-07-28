@@ -4,13 +4,16 @@
 
 이 저장소는 모든 프로젝트를 하나의 CMS나 데이터베이스로 합치지 않습니다. 대신 문서·revision·제안·계정 권한·업로드/다운로드·자산·리소스·게시의 **공통 계약**, 프로젝트 목적별 **프로필**, 외부 시스템별 **adapter**, 생성/검증 **CLI**, 그리고 Codex **skill**을 함께 버전 관리합니다.
 
-> 상태: `v0.1.0-alpha`. 프로젝트 생성과 계약 검증 기반은 동작하지만 Studio, Publishing API, 실제 저장/배포 adapter는 로드맵 단계입니다.
+> 상태: `v0.1.0-alpha`. Profile Studio, 프로젝트 생성과 계약 검증 기반은 동작하지만 실제 본문을 편집·게시하는 Publishing API와 provider adapter는 로드맵 단계입니다.
 
 ## 빠른 시작
 
 ```bash
 npm install
 npm run verify
+
+# 로컬 인터뷰·비교·채택 UI
+npm run studio
 
 # 목적에 맞는 프로필 추천
 npm run epk -- recommend "계정과 권한이 있는 WYSIWYG 장비 매뉴얼"
@@ -25,6 +28,8 @@ npm run epk -- doctor ../new-manual
 ```
 
 생성기는 기존 파일을 덮어쓰지 않습니다. `.epk/state.json`에는 생성 당시 파일 checksum이 기록되며, `doctor`는 계약 오류와 의도적인 로컬 수정을 구분해 보여줍니다.
+
+패키지 설치 후에는 `epk studio`로 같은 UI를 실행합니다. 인터뷰 답변과 채택 상태는 해당 브라우저의 versioned local storage에만 남고 원격으로 전송되지 않습니다. 자세한 흐름은 [Profile Studio 사용법](docs/PROFILE_STUDIO.md)을 참고하세요.
 
 ## 프로필
 
@@ -84,6 +89,7 @@ Issue 양식은 재현뿐 아니라 사용자 영향과 로컬 변경 이유를 
 
 - [프로젝트 계획](docs/PROJECT_PLAN.md)
 - [아키텍처](docs/ARCHITECTURE.md)
+- [Profile Studio 사용법](docs/PROFILE_STUDIO.md)
 - [거버넌스](docs/GOVERNANCE.md)
 - [4개 프로젝트 기준선](docs/research/FOUR_PROJECT_BASELINE.md)
 - [공통 kit 결정](docs/adr/0001-composable-kit-not-one-cms.md)

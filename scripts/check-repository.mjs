@@ -16,6 +16,11 @@ const requiredFiles = [
   "schemas/publishing-project.schema.json",
   "skills/bootstrap-editorial-publishing/SKILL.md",
   "skills/bootstrap-editorial-publishing/agents/openai.yaml",
+  "studio/index.html",
+  "studio/src/App.tsx",
+  "studio/src/components/ProfileGallery.tsx",
+  "studio/src/components/AdoptionView.tsx",
+  "studio/src/styles.css",
   "templates/project/AGENTS.md.tmpl",
 ];
 
