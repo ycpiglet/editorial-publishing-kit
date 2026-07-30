@@ -31,6 +31,9 @@
 
 - document, revision, suggestion, account, asset, resource, publication TypeScript 계약
 - 다섯 profile과 목적 기반 추천
+- 여덟 축 interview, 추천 근거·trade-off, profile별 hands-on authoring UI,
+  사용 시점·대상·장단점 가이드와 실제 참조 구현 링크
+- manifest 다운로드와 `epk studio` local adoption flow
 - `publishing.project.json` schema
 - 충돌 없는 scaffold와 managed-file drift 검사
 - GitHub Issue forms, PR evidence template, governance/ADR
@@ -43,6 +46,9 @@
 - 다섯 profile이 유효한 manifest를 생성한다.
 - 같은 target에 재실행해 기존 파일을 덮어쓰지 않는다.
 - 로컬 customization을 contract 오류와 구분해 탐지한다.
+- 사용자가 계정이나 cloud 없이 interview → profile 비교 → 글 작성·저장·
+  제안·게시 체험 → 실제 구현 확인 → manifest 채택을 완료한다.
+- Ubuntu, Windows, macOS에서 같은 verify workflow가 통과한다.
 
 ### Phase 1 — Adapter SDK와 conformance (`v0.2`)
 
