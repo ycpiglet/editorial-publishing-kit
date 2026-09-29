@@ -33,7 +33,7 @@ flowchart TB
 | Contract | TypeScript domain types와 manifest validation | versioned API/MCP schema와 conformance |
 | Profile | 5개 profile, capability/adapter defaults | 실사용 evidence 기반 profile lifecycle |
 | Project factory | recommend/init/doctor, overwrite 방지, checksum | update plan/diff/apply와 migration |
-| UI/API | 미구현 | shared Studio와 Publishing API |
+| UI/API | 로컬 Profile Studio: interview, profile 체험, manifest 채택 | 실제 콘텐츠를 다루는 shared Studio와 Publishing API |
 | Adapter | selection contract만 구현 | Git, Postgres, Quarto, local reference adapters |
 | Agent | bootstrap skill | Publishing MCP skill과 승인 workflow |
 | Runtime | `AutomationPort`/event만 구현 | 조건부 Agent Runtime adapter |

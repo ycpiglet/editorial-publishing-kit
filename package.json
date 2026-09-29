@@ -20,17 +20,29 @@
     "dist/src/",
     "schemas/",
     "skills/",
+    "studio-dist/",
     "templates/"
   ],
   "scripts": {
     "build": "tsc -p tsconfig.json",
-    "check": "tsc -p tsconfig.json --noEmit && node scripts/check-repository.mjs",
+    "check": "tsc -p tsconfig.json --noEmit && tsc -p studio/tsconfig.json --noEmit && node scripts/check-repository.mjs",
     "epk": "npm run build --silent && node dist/src/cli.js",
+    "prepack": "npm run build && npm run studio:build",
+    "studio": "npm run build --silent && npm run studio:build --silent && node dist/src/cli.js studio",
+    "studio:build": "vite build --config studio/vite.config.ts",
+    "studio:dev": "vite --config studio/vite.config.ts",
+    "studio:preview": "vite preview --config studio/vite.config.ts",
     "test": "npm run build --silent && node --test dist/test/*.test.js",
-    "verify": "npm run check && npm test"
+    "verify": "npm run check && npm test && npm run studio:build"
   },
   "devDependencies": {
     "@types/node": "^24.0.0",
-    "typescript": "^5.9.0"
+    "@types/react": "19.2.17",
+    "@types/react-dom": "19.2.3",
+    "@vitejs/plugin-react": "6.0.4",
+    "react": "19.2.8",
+    "react-dom": "19.2.8",
+    "typescript": "^5.9.0",
+    "vite": "8.1.5"
   }
 }

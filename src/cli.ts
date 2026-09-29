@@ -9,6 +9,7 @@ import {
   listProfiles,
   recommendProfiles,
 } from "./profiles.js";
+import { serveStudio } from "./studio-server.js";
 
 const USAGE = `Editorial Publishing Kit
 
@@ -18,6 +19,7 @@ Usage:
   epk recommend <project purpose>
   epk init <directory> --profile <profile> [--name <name>] [--id <id>] [--dry-run]
   epk doctor [directory]
+  epk studio [--port <port>]
 
 Profiles:
   ${PROFILE_IDS.join(", ")}
@@ -134,6 +136,38 @@ async function run(args: readonly string[]): Promise<number> {
     for (const file of plan.files) {
       process.stdout.write(`- ${file}\n`);
     }
+    return 0;
+  }
+
+  if (command === "studio") {
+    const studioArgs =
+      subcommand === undefined ? rest : [subcommand, ...rest];
+    const portValue = option(studioArgs, "--port");
+    const port = portValue === undefined ? 4317 : Number(portValue);
+    if (
+      !Number.isInteger(port) ||
+      port < 1 ||
+      port > 65535
+    ) {
+      process.stderr.write("--port must be an integer from 1 to 65535.\n");
+      return 2;
+    }
+    const running = await serveStudio({ port });
+    process.stdout.write(
+      `Profile Studio ready at ${running.url}\nAnswers stay in this browser. Press Ctrl+C to stop.\n`,
+    );
+    await new Promise<void>((resolve) => {
+      let closing = false;
+      const shutdown = () => {
+        if (closing) {
+          return;
+        }
+        closing = true;
+        void running.close().finally(resolve);
+      };
+      process.once("SIGINT", shutdown);
+      process.once("SIGTERM", shutdown);
+    });
     return 0;
   }
 

@@ -8,6 +8,9 @@ Read `docs/ARCHITECTURE.md`, the relevant ADR, and `publishing.project.json` in 
 - Profile defaults and recommendation: `src/profiles.ts`
 - Manifest composition/validation: `src/manifest.ts`
 - Project generation and drift detection: `src/scaffold.ts`
+- Interview scoring: `src/interview.ts`
+- Local Studio server: `src/studio-server.ts`
+- Interactive adoption UI: `studio/src/`
 - Generated project assets: `templates/project/`
 - Codex workflow: `skills/bootstrap-editorial-publishing/`
 
@@ -29,6 +32,7 @@ Run:
 
 ```bash
 npm run verify
+node dist/src/cli.js studio
 python /home/keti-itp-01/.codex/skills/.system/skill-creator/scripts/quick_validate.py skills/bootstrap-editorial-publishing
 ```
 
